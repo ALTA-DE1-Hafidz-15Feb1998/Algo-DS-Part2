@@ -1,5 +1,14 @@
 def maximum_buy_product(money, product_price):
-    return 0
+    product_price.sort()  # Urutkan harga produk dari yang termurah
+
+    items_bought = 0
+
+    for price in product_price:
+        if money >= price:
+            items_bought += 1
+            money -= price
+
+    return items_bought
 
 if __name__ == "__main__":
     print(maximum_buy_product(50000, [25000, 25000, 10000, 14000]))      # 3
